@@ -1,9 +1,7 @@
-package org.example.voidfx1;
-
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
-public class HelloController {
+public class EllipseController {
     @FXML
     private Label welcomeText;
 

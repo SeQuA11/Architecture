@@ -12,5 +12,5 @@ module org.example.voidfx1 {
     requires com.almasb.fxgl.all;
 
     opens org.example.voidfx1 to javafx.fxml;
-    exports org.example.voidfx1;
+
 }
