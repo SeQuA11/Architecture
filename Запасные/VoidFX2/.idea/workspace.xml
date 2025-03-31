@@ -5,20 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2d427c43-73d7-45b4-b931-933f98411d5e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../KlientBank2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../KlientBank2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/Basketball.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/Football.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/Sport.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/Tennis.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/main.java" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../GUI/.idea/uiDesigner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../GUI/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../GUI/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../GUI/src/main/java/module-info.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../GUI/src/main/java/org/example/gui/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../GUI/src/main/java/HelloApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../GUI/src/main/java/org/example/gui/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../GUI/src/main/java/HelloController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../GUI/src/main/resources/org/example/gui/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../../GUI/src/main/resources/org/example/gui/hello-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -30,9 +37,9 @@
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="2" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 0
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
   <component name="ProjectId" id="2tMnvcwhxuzPHq91EWT2WoE7W0W" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -40,9 +47,12 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.Clock.executor": "Run",
+    "Application.SquareClock.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true"
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "E:/Architecture/Запасные/VoidFX2"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
