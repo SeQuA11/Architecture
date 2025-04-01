@@ -49,7 +49,7 @@ public class Clock extends Application {
         timeline.play(); // Запускаем анимацию
 
         // Создаем Scene (сцену) с BorderPane в качестве корневого элемента
-        Scene scene = new Scene(borderPane, 400, 400); // Устанавливаем размер сцены 400x400
+        Scene scene = new Scene(borderPane, 400, 600); // Устанавливаем размер сцены 400x400
         primaryStage.setTitle("Мои часы"); // Устанавливаем заголовок окна
         primaryStage.setScene(scene); // Устанавливаем сцену на главное окно (Stage)
         primaryStage.show(); // Отображаем окно

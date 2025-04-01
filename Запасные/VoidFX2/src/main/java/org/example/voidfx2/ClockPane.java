@@ -2,9 +2,7 @@ package org.example.voidfx2;
 
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
-import javafx.scene.shape.Line;
-import javafx.scene.shape.Rectangle;
+import javafx.scene.shape.*;
 
 import java.time.LocalTime;
 
@@ -92,7 +90,47 @@ class ClockPane extends Pane {
         double centerX = w / 2; // Вычисляем координату X центра
         double centerY = h / 2; // Вычисляем координату Y центра
 
+        // Создаём дугу
+        Arc arc = new Arc();
 
+        // Определяем координаты левой и правой точек дуги
+        double leftX = 250; // координата левой точки (начало дуги)
+        double rightX = 540; // координата правой точки (конец дуги)
+
+        double topY = 570; // Y-координата верхней точки (центр по вертикали)
+        double arcHeight = 50; // Высота всей дуги (диаметр по вертикали)
+
+        // Вычисляем центр и радиусы
+        double centerX2 = (leftX + rightX) / 2;
+        double radiusX = (rightX - leftX) / 2;
+        double radiusY = arcHeight / 2;
+
+        arc.setCenterX(centerX2); //  Устанавливает координату X центра эллипса.
+        arc.setCenterY(topY); // Устанавливает координату Y центра эллипса.
+        arc.setRadiusX(radiusX); //  Устанавливает горизонтальный радиус (радиус по оси X) эллипса.
+        arc.setRadiusY(radiusY); // Устанавливает вертикальный радиус (радиус по оси Y) эллипса.
+
+        /*arc.setCenterX(leftX);
+        arc.setCenterY(rightX);
+        arc.setRadiusX(topY);
+        arc.setRadiusY(arcHeight);*/
+
+        // Определяем углы начала и длины дуги
+        arc.setStartAngle(0); // Угол начала дуги (0 градусов - правая сторона)
+        arc.setLength(180); // Длина дуги (180 градусов - половина эллипса/левая сторона)
+
+        // Тип замыкания дуги (как она соединяет концы)
+        arc.setType(ArcType.OPEN); // OPEN - для незамкнутой дуги
+
+        // Заливка
+        arc.setFill(Color.TRANSPARENT); // Устанавливаем цвет заливки на прозрачный
+
+        // Цвет контура
+        arc.setStroke(Color.BLACK);
+
+
+        // [Добавляем дугу в Pane, откуда она рисуется и повяляется в нашей сцене]
+        getChildren().add(arc);
 
         // Рисуем круг (циферблат)
         Circle circle = new Circle(centerX, centerY, clockRadius); // Создаем круг
