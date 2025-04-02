@@ -90,6 +90,18 @@ class ClockPane extends Pane {
         double centerX = w / 2; // Вычисляем координату X центра
         double centerY = h / 2; // Вычисляем координату Y центра
 
+        // Рисуем круг (циферблат)
+        Circle circle = new Circle(centerX, centerY, clockRadius); // Создаем круг
+        circle.setFill(Color.TRANSPARENT);   // Задаем белый цвет заливки
+        circle.setStroke(Color.BLACK);  // Задаем черный цвет обводки
+        getChildren().clear();        // Очищаем панель от предыдущих элементов
+        getChildren().add(circle);   // Добавляем круг на панель
+
+        Rectangle square = new Rectangle(centerX - w/2, centerY - h/2, w, h); // Рисуем квадрат в центре панели
+        square.setFill(Color.TRANSPARENT);       // Заливаем белым цветом
+        square.setStroke(Color.BLACK);      // Обводим черным цветом
+        getChildren().add(square);         // Добавляем квадрат на панель
+
         // Создаём дугу
         Arc arc = new Arc();
 
@@ -110,10 +122,6 @@ class ClockPane extends Pane {
         arc.setRadiusX(radiusX); //  Устанавливает горизонтальный радиус (радиус по оси X) эллипса.
         arc.setRadiusY(radiusY); // Устанавливает вертикальный радиус (радиус по оси Y) эллипса.
 
-        /*arc.setCenterX(leftX);
-        arc.setCenterY(rightX);
-        arc.setRadiusX(topY);
-        arc.setRadiusY(arcHeight);*/
 
         // Определяем углы начала и длины дуги
         arc.setStartAngle(0); // Угол начала дуги (0 градусов - правая сторона)
@@ -127,22 +135,8 @@ class ClockPane extends Pane {
 
         // Цвет контура
         arc.setStroke(Color.BLACK);
-
-
-        // [Добавляем дугу в Pane, откуда она рисуется и повяляется в нашей сцене]
+        // [Добавляем дугу в Pane, откуда она рисуется и появляется в нашей сцене]
         getChildren().add(arc);
-
-        // Рисуем круг (циферблат)
-        Circle circle = new Circle(centerX, centerY, clockRadius); // Создаем круг
-        circle.setFill(Color.TRANSPARENT);   // Задаем белый цвет заливки
-        circle.setStroke(Color.BLACK);  // Задаем черный цвет обводки
-        getChildren().clear();        // Очищаем панель от предыдущих элементов
-        getChildren().add(circle);   // Добавляем круг на панель
-
-        Rectangle square = new Rectangle(centerX - w/2, centerY - h/2, w, h); // Рисуем квадрат в центре панели
-        square.setFill(Color.TRANSPARENT);       // Заливаем белым цветом
-        square.setStroke(Color.BLACK);      // Обводим черным цветом
-        getChildren().add(square);         // Добавляем квадрат на панель
 
         // Рисуем цифры от 1 до 12
         for (int i = 1; i <= 12; i++) {
