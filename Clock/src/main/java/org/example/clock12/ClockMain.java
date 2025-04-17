@@ -38,8 +38,7 @@ public class ClockMain extends Application {
         BorderPane.setMargin(clock, new Insets(12, 12, 0, 12)); // Добавляем отступы вокруг ClockPane
 
         // Создаем Timeline для обновления часов каждую секунду
-        Timeline timeline = new Timeline(
-                new KeyFrame(Duration.seconds(1), e -> { // Каждый 1 секунду (Duration.seconds(1))
+        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), e -> { // Каждый 1 секунду (Duration.seconds(1))
                     clock.setCurrentTime(); // Вызываем метод setCurrentTime() для обновления времени на часах
                     dateText.setText(LocalDate.now().format(DateTimeFormatter.ofPattern("dd.MM.yyyy"))); // Обновляем дату
                 })
@@ -49,6 +48,7 @@ public class ClockMain extends Application {
 
         // Создаем Scene (сцену) с BorderPane в качестве корневого элемента
         Scene scene = new Scene(borderPane, 500, 600); // Устанавливаем размер сцены 400x400
+        primaryStage.setResizable(false);
         primaryStage.setTitle("Мои часы"); // Устанавливаем заголовок окна
         primaryStage.setScene(scene); // Устанавливаем сцену на главное окно (Stage)
         primaryStage.show(); // Отображаем окно
