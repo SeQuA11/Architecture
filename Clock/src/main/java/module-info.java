@@ -8,8 +8,8 @@ module org.example.clock12 {
     requires net.synedra.validatorfx;
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
-    requires eu.hansolo.tilesfx;
-    requires com.almasb.fxgl.all;
+
+
 
     opens org.example.clock12 to javafx.fxml;
     exports org.example.clock12;
