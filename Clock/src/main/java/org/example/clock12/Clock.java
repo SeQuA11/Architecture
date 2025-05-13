@@ -5,6 +5,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.*;
 import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -31,38 +32,6 @@ class Clock extends Pane {
 
     protected void paintClock() {
 
-        //---------------------------------------
-        //-----------------ДАТА------------------
-        //---------------------------------------
-
-        // Получает текущую дату
-        LocalDate currentDate = LocalDate.now();
-
-        // Форматируем дату
-
-        // Создаем объект DateTimeFormatter для указания желаемого формата даты.
-        // В данном случае, формат “dd.MM.yyyy” означает “день.месяц.год”.
-        DateTimeFormatter formater = DateTimeFormatter.ofPattern("dd.MM.yyyy");
-
-        // Используем метод format() объекта LocalDate
-        // для преобразования даты в строку, используя указанный форматтер.
-        String formattedDate = currentDate.format(formater);
-
-
-        // Создаём элемент (метка?) для отображения даты
-        Label dateLabel = new Label(formattedDate);
-
-        // Устанавливаем размер шрифта в пунктах
-        double fontSize = 24;
-        // Создает новый объект Font с указанным размером шрифта
-        dateLabel.setFont(Font.font(fontSize));
-
-        // Задаем координаты элемента (метки)
-        double CoordinateX = 350; // по горизонтали
-        double CoordinateY = 452; // по вертикали
-        dateLabel.setLayoutX(CoordinateX); // Устанавливаем X-координату элемента (метки)
-        dateLabel.setLayoutY(CoordinateY); // Устанавливаем Y-координату элемента (метки)
-
         // Метод для отрисовки часов
         // Вычисляем радиус часов
         double clockRadius = 150;
@@ -84,15 +53,47 @@ class Clock extends Pane {
         getChildren().add(square); // Добавляем квадрат на панель
 
         // Боковые линии снизу
+        Line line1 = new Line(100, 510, 130, 510); // Нижняя левая
+        Line line2 = new Line(350, 510, 380, 510); // Нижняя правая
+        Line line3 = new Line(100, 440, 100, 510); // Прямая левая
+        Line line4 = new Line(380, 440, 380, 510); // Прямая правая
+
+        getChildren().addAll(line1, line2, line3, line4);
+
+
+
+
+        // Получает текущую дату
+        LocalDate currentDate = LocalDate.now();
+
+        // Создаем объект DateTimeFormatter для указания желаемого формата даты.
+        // В данном случае, формат “dd.MM.yyyy” означает “день.месяц.год”.
+        DateTimeFormatter formater = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+
+        // Создаём метку для отображения даты
+        Label dateLabel = new Label(currentDate.format(formater));
+
+        // Создает новый объект Font с указанным размером шрифта
+        dateLabel.setFont(Font.font(24));
+
+        // Задаем координаты элемента (метки)
+        dateLabel.setLayoutX(185); // Устанавливаем X-координату элемента (метки)
+        dateLabel.setLayoutY(445); // Устанавливаем Y-координату элемента (метки)
+
+        getChildren().addAll(dateLabel);
+
+
+
+
 
         // Создаём дугу
         Arc arc = new Arc();
 
         // Определяем координаты левой и правой точек дуги
-        double leftX = 100; // координата левой точки (начало дуги)
-        double rightX = 540; // координата правой точки (конец дуги)
+        double leftX = 130; // координата левой точки (начало дуги)
+        double rightX = 350; // координата правой точки (конец дуги)
 
-        double topY = 570; // Y-координата верхней точки (центр по вертикали)
+        double topY = 510; // Y-координата верхней точки (центр по вертикали)
         double arcHeight = 50; // Высота всей дуги (диаметр по вертикали)
 
         // Вычисляем центр и радиусы
@@ -117,6 +118,7 @@ class Clock extends Pane {
 
 
 
+
         // Рисуем цифры от 1 до 12
         for (int i = 1; i <= 12; i++) {
             // Вычисляем угол для каждой цифры
@@ -124,8 +126,12 @@ class Clock extends Pane {
             // Вычисляем координаты X и Y для каждой цифры
             double x = centerX + clockRadius * 1.2 * Math.cos(angleNumber);
             double y = centerY + clockRadius * 1.2 * Math.sin(angleNumber);
+
             // Создаем текстовый объект для каждой цифры
-            javafx.scene.text.Text text = new javafx.scene.text.Text(x - 4, y + 4, String.valueOf(i)); // Adjust position for better appearance
+            Text text = new Text(String.valueOf(i));
+            text.setX(x - text.getLayoutBounds().getWidth() / 1.4);
+            text.setY(y + text.getLayoutBounds().getHeight() / 4);
+            text.setFont(new Font(18)); // Размер шрифта
             getChildren().add(text); // Добавляем цифру на панель
         }
 
@@ -164,12 +170,12 @@ class Clock extends Pane {
         }
 
         // Рисуем секундную стрелку
-        double sLength = clockRadius * 0.8; // Вычисляем длину секундной стрелки
+        double sLength = clockRadius * 0.9; // Вычисляем длину секундной стрелки
         // Вычисляем координаты X и Y конца секундной стрелки
         double secondX = centerX + sLength * Math.sin(second * (2 * Math.PI / 60));
         double secondY = centerY - sLength * Math.cos(second * (2 * Math.PI / 60));
         Line sLine = new Line(centerX, centerY, secondX, secondY); // Создаем линию для секундной стрелки
-        sLine.setStroke(Color.RED);  // Задаем красный цвет секундной стрелки
+        sLine.setStroke(Color.BLACK);  // Задаем красный цвет секундной стрелки
         getChildren().add(sLine);    // Добавляем секундную стрелку на панель
 
         // Рисуем минутную стрелку
@@ -179,6 +185,7 @@ class Clock extends Pane {
         double minuteY = centerY - mLength * Math.cos(minute * (2 * Math.PI / 60));
         Line mLine = new Line(centerX, centerY, minuteX, minuteY); // Создаем линию для минутной стрелки
         mLine.setStroke(Color.BLACK); // Задаем синий цвет минутной стрелки
+        mLine.setStrokeWidth(3);
         getChildren().add(mLine);   // Добавляем минутную стрелку на панель
 
         // Рисуем часовую стрелку
@@ -188,7 +195,7 @@ class Clock extends Pane {
         double hourY = centerY - hLength * Math.cos((hour % 12 + minute / 60.0) * (2 * Math.PI / 12)); // учет минут для более точного положения часовой стрелки
         Line hLine = new Line(centerX, centerY, hourX, hourY); // Создаем линию для часовой стрелки
         hLine.setStroke(Color.BLACK); // Задаем зеленый цвет часовой стрелки
-        hLine.setStrokeWidth(3);
+        hLine.setStrokeWidth(2);
         getChildren().add(hLine);    // Добавляем часовую стрелку на панель
     }
 }

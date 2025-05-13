@@ -370,8 +370,8 @@ public class d extends Application {
 
             // Сдвигаем текст, чтобы он был центрирован относительно точки
             // (Корректируем координаты X и Y так, чтобы текст был выровнен по центру относительно вычисленной точки)
-            text.setX(x - textWidth / 2);
-            text.setY(y + textHeight / 4); // Небольшая коррекция для вертикального центрирования
+            text.setX(x - text.getLayoutBounds().getWidth() / 2);
+            text.setY(y + text.getLayoutBounds().getHeight() / 4); // Небольшая коррекция для вертикального центрирования
 
             root.getChildren().add(text); // добавляем цифры на сцену (рисуем в приложении)
         }
