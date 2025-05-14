@@ -12,8 +12,8 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
 class Clock extends Pane {
-    private int hour;       // Текущий час
-    private int minute;     // Текущая минута
+    private int hour;         // Текущий час
+    private int minute;      // Текущая минута
     private int second;     // Текущая секунда
 
     // Конструктор по умолчанию. Инициализирует часы текущим временем
@@ -22,10 +22,10 @@ class Clock extends Pane {
     }
 
     public void setCurrentTime() {
-        LocalTime time = LocalTime.now(); // Получаем текущее время из LocalTime
-        this.hour = time.getHour();     // Устанавливаем час
+        LocalTime time = LocalTime.now();   // Получаем текущее время из LocalTime
+        this.hour = time.getHour();        // Устанавливаем час
         this.minute = time.getMinute();   // Устанавливаем минуту
-        this.second = time.getSecond();   // Устанавливаем секунду
+        this.second = time.getSecond();  // Устанавливаем секунду
 
         paintClock(); // Отрисовываем часы с новым временем
     }
@@ -48,9 +48,9 @@ class Clock extends Pane {
         // Квадрат
         Rectangle square = new Rectangle(40, 40, 400, 400); // x, y, width, height
         square.setFill(Color.TRANSPARENT); // Устанавливаем цвет заливки
-        square.setStroke(Color.BLACK); // Устанавливаем цвет линии
-        square.setStrokeWidth(3); // Устанавливаем толщину линии
-        getChildren().add(square); // Добавляем квадрат на панель
+        square.setStroke(Color.BLACK);    // Устанавливаем цвет линии
+        square.setStrokeWidth(3);        // Устанавливаем толщину линии
+        getChildren().add(square);      // Добавляем квадрат на панель
 
         // Боковые линии снизу
         Line line1 = new Line(100, 510, 130, 510); // Нижняя левая
